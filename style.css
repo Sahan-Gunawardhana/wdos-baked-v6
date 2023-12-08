@@ -192,16 +192,6 @@ nav .ham-menu .line {
     color: var(--maincolor);
     text-align: center;
     text-transform: uppercase;
-    background-image: linear-gradient(90deg,#e1cbae 0%,#28352a 45%,#b49f85 65%,#e1cbae 100%);
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
-    animation: navtextanimation 6s linear infinite;
     display: inline-block; 
     font-size:clamp(20px, 5vw, 500px);
     font-weight: 500;
@@ -209,11 +199,6 @@ nav .ham-menu .line {
     filter: contrast(170%) saturate(102%);
 }
 
-@keyframes navtextanimation {
-  to {
-    background-position: 200% center;
-  }
-}
 
 #details{
     font-size: 1.1em;
