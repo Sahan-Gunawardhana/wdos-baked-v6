@@ -540,7 +540,7 @@ function saveToFavorites(event) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
     alert("You reservation has been added to favourites");
     }
-
+  console.log(favorites);
 }
 
 function returnToTop(){
