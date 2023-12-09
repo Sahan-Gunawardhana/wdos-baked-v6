@@ -704,3 +704,55 @@ h2 {
         display: none;
     }
 }
+footer{
+    display: flex;
+    height: auto;
+    justify-content: space-evenly;
+    border-top: 0.1pt solid black;
+    background-color: var(--compcolor);
+    background-position: center;
+    color: whitesmoke;
+}
+
+.footerSec{
+    text-align: left;
+    font-size: clamp(0.7em 0.8em 1em);
+}
+
+footer hr{
+	width: 0.4px;
+	border: 0.3pt solid rgba(255, 255, 255, 0.173);
+}
+
+footer h1{
+    font-size: 1.4em;
+    font-family: var(--headfont);
+    text-decoration: underline;
+}
+
+footer a{
+    font-size: clamp(0.7em 0.8em 1em);
+    font-family: var(--);
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width:480px) {
+    footer{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .footerSec{
+        width: 100%;
+        text-align: center;
+        border-bottom: 0.2pt solid rgba(255, 255, 255, 0.187);
+    }   
+    footer hr{
+        display: none;
+    }
+}
