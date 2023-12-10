@@ -48,6 +48,9 @@ const participantCell = document.getElementById('participant-cell');
 const avdDurationCell = document.getElementById('adv-duration-cell');
 const guideCell = document.getElementById('guide-cell');
 const extraRequirementsCell = document.getElementById("extra-requirements-cell");
+const loyaltyOutCell = document.getElementById("loyaltyOut");
+
+
 const extraRequirementRadio = document.getElementsByName("requirement-1");
 const extraRequirementCheckboxes = document.getElementsByName("requirement");
 const totalCell_1 = document.getElementById('total-1');
@@ -199,14 +202,17 @@ function promoCodeValidation(){
 }
 
 //displays loyalty to the user
-function displayLoyalty(){
-    calculateLoyalty();
-    if(loyaltyPoints > 0){
-        alert(`You currently have a total of ${loyaltyPoints} loyalty points. We appreciate your continued support!`);
-    } else{
-        alert("At the moment, you haven't accumulated any loyalty points.");
+function displayLoyalty() {
+    let lyl = parseInt(localStorage.getItem('loyaltyPoints'));
+    loyaltyOutCell.style.display = 'block';
+    if (lyl > 0) {
+       loyaltyOutCell.innerText = `You currently have a total of ${lyl} loyalty points. We appreciate your continued support!`;
+    } else {
+        loyaltyOutCell.innerText = "At the moment, you haven't accumulated any loyalty points.";
     }
 }
+
+
 
 //calculate loyalty points 
 function calculateLoyalty(){
@@ -477,7 +483,6 @@ function reserveAdv(event){
 function saveToFavorites(event) {
     event.preventDefault();
     dayFav = dayDifference();
-    localStorage.clear();
     loyalty = calculateLoyalty();
     let fullName = fnameInput.value + ' ' + lnameInput.value;
     let email = emailInput.value;
@@ -491,7 +496,6 @@ function saveToFavorites(event) {
     let tripleRoom = tripleBedRoomInput.value;
     // Retrieve existing favorites from local storage or start an empty array
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
     if(
         fullName.trim() === '' ||
         email.trim() === '' ||
@@ -521,7 +525,7 @@ function saveToFavorites(event) {
         tripleRoom: tripleBedRoomInput.value,
         promoCode: promoCodeInput.value,
         extraBed: extraBedInput.value,
-        loyaltyPoints:  loyalty,
+        loyaltypoints:  loyalty,
     };
     const favoriteAdventureData = {
         bookingType: 'Adventure Booking',
@@ -540,7 +544,8 @@ function saveToFavorites(event) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
     alert("You reservation has been added to favourites");
     }
-  console.log(favorites);
+
+    console.log(favorites);
 }
 
 function returnToTop(){
