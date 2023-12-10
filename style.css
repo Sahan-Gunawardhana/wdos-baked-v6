@@ -756,3 +756,15 @@ footer a:hover{
         display: none;
     }
 }
+.loyaltyOut{
+    width: 100%;
+    min-height: 70px;
+    border: 0.5pt solid;
+    font-family: var(--headfont);
+    font-size: clamp(1em 1.4em 1.4em);
+    background-color:#27322e67;
+    color: rgb(0, 0, 0);
+    display: none;
+    line-height: 100px;
+    padding-left: 2%;
+}
